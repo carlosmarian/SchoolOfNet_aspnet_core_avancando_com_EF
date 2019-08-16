@@ -29,6 +29,9 @@ Neste arquivos estarão todas as conficurações do banco.
 
 CREATE DATABASE `efprojeto` /*!40100 COLLATE 'latin1_general_cs' */;
 
+Executar projeto: 
+dotnet watch run
+
 Para migrações usa o "dotnet ef"
   dotnet ef --help
 
@@ -38,3 +41,4 @@ Para migrações usa o "dotnet ef"
   Atualizar o banco de dados:
   dotnet ef database update 
   *isso limpa os registros do banco
+
