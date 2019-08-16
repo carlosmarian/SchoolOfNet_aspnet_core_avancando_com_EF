@@ -42,3 +42,14 @@ Para migrações usa o "dotnet ef"
   dotnet ef database update 
   *isso limpa os registros do banco
 
+
+Sequencias de cursos:
+https://www.schoolofnet.com/curso/aspnet/dotnet-core/aspnet-core-avancando-com-entity-framework/12465
+
+https://www.schoolofnet.com/curso/aspnet/dotnet-core/api-rest-com-aspnet-core-parte-1/
+
+https://www.schoolofnet.com/curso/aspnet/dotnet-core/api-rest-com-aspnet-core-parte-2/
+
+https://www.schoolofnet.com/curso/aspnet/dotnet-core/api-rest-com-asp-net-core-hateoas/
+
+
