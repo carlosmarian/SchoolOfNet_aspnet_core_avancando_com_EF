@@ -31,3 +31,10 @@ CREATE DATABASE `efprojeto` /*!40100 COLLATE 'latin1_general_cs' */;
 
 Para migrações usa o "dotnet ef"
   dotnet ef --help
+
+  Criar uma Migração:
+  dotnet ef migrations add CategoriaAdd
+
+  Atualizar o banco de dados:
+  dotnet ef database update 
+  *isso limpa os registros do banco

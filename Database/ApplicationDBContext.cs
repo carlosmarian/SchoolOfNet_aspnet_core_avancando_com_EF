@@ -6,6 +6,7 @@ namespace EFCurso.Database
     {
 
         public DbSet<Funcionario> Funcionarios {get; set;}
+        public DbSet<Categoria> Categorias { get; set; }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options){}
     }
