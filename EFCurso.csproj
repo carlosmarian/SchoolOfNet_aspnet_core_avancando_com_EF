@@ -6,6 +6,11 @@
     <Authors>Carlos</Authors>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20190819210449_Initial.cs" />
+    <Compile Remove="Migrations\20190819210449_Initial.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
