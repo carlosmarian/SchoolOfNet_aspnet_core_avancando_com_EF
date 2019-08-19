@@ -43,6 +43,20 @@ Para migrações usa o "dotnet ef"
   *isso limpa os registros do banco
 
 
+Para carregar as classes relacionados deve usar o metodo "Include", ele está no pacote "Microsoft.EntityFrameworkCore".
+
+var listaDeProdutos = database.Produtos.Include(p => p.Categoria).ToList();
+
+==Lazy Loading==
+para usar o mecanismo de Lazy Loading deve add um componente "Microsoft.EntityFrameworkCore.Proxies"
+
+Após isso deve ser alterada a classe de contexto para ativar o LazyLoading, para isso deve sobrescrever o método "OnConfiguring".
+
+Além disso, cada atributo que deve ser lazyloading deve ser alterado para um atributo virtual.
+
+OBS: Se configurar o LAzy e não tiver nenhum atributo virtual, pode dar erro de compilação.
+
+
 Sequencias de cursos:
 https://www.schoolofnet.com/curso/aspnet/dotnet-core/aspnet-core-avancando-com-entity-framework/12465
 

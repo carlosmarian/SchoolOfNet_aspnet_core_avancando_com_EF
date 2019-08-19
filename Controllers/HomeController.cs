@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EFCurso.Models;
 using EFCurso.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCurso.Controllers
 {
@@ -76,6 +77,7 @@ namespace EFCurso.Controllers
 
         public IActionResult Relacionamento()
         {
+
             Produto p1 = new Produto();
             p1.Nome = "Doritos";
             p1.Categoria = database.Categorias.First(c => c.Id == 1);
@@ -97,6 +99,47 @@ namespace EFCurso.Controllers
             database.SaveChanges();
 
             return Content("Relacionamnto");
+        }
+
+        public IActionResult ConsultaRelacionamento()
+        {
+            // o camando "Include(p => p.Categoria " diz para o EF que eu quero que ele inclua a categoria  para cada produto.
+            var listaDeProdutos = database.Produtos.Include(p => p.Categoria).ToList();
+
+            listaDeProdutos.ForEach(produto =>
+            {
+                Console.WriteLine(produto.ToString());
+            }
+            );
+
+            return Content("Consulta Relacionamnto");
+        }
+
+        public IActionResult ConsultaUmParaMuitos()
+        {
+            Console.WriteLine("Monta Lista");
+            var listaProdutos = database.Produtos.Include(p => p.Categoria).Where(p => p.Categoria.Id == 1).ToList();
+            Console.WriteLine("VaiListar");
+            listaProdutos.ForEach(produto =>
+            {
+                Console.WriteLine(produto.ToString());
+            }
+           );
+
+            return Content("ConsultaUmParaMuitos");
+        }
+
+        public IActionResult LazyLoading()
+        {
+            Console.WriteLine("Monta Lista com Lazy ativado");
+            var listaProdutos = database.Produtos.Where(p => p.Categoria.Id == 1).ToList();
+            Console.WriteLine("Vai Listar");
+            listaProdutos.ForEach(produto =>
+            {
+                Console.WriteLine(produto.ToString());
+            }
+           );
+            return Content("LazyLoading");
         }
     }
 }
