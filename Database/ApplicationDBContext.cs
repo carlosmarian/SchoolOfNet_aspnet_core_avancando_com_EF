@@ -16,5 +16,19 @@ namespace EFCurso.Database
             //Ativando o LazyLoading.
             optionsBuilder.UseLazyLoadingProxies();
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Metodo será chamado sempre que vc for gerar suas entidades.
+
+            //Mudar o nome da tabela.
+            modelBuilder.Entity<Produto>().ToTable("Produtos_Alt");
+
+            //Midar atributos da tabela
+            modelBuilder.Entity<Produto>().Property(p => p.Nome).IsRequired();
+            modelBuilder.Entity<Produto>().Property(p => p.Nome).HasMaxLength(50);
+
+        }
+
     }
 }

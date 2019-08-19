@@ -57,6 +57,26 @@ Além disso, cada atributo que deve ser lazyloading deve ser alterado para um at
 OBS: Se configurar o LAzy e não tiver nenhum atributo virtual, pode dar erro de compilação.
 
 
+==Fluent API==
+
+Para usar deve ser alterada a classe de contexto sobrescrevendo o metodo "OnModelCreating". 
+Este Método é chamado sempre que vc cria as entidades.
+
+Pode alterar atributos de campos:
+modelBuilder.Entity<Produto>().Property(p => p.Nome).IsRequired();
+modelBuilder.Entity<Produto>().Property(p => p.Nome).HasMaxLength(50);
+
+Alterar nome de tabela:
+modelBuilder.Entity<Produto>().ToTable("Produtos_Alt");
+
+E tbm criar PK.
+
+==Desfazer Migrações==
+
+dotnet ef database update ProdutoAdd
+
+
+
 Sequencias de cursos:
 https://www.schoolofnet.com/curso/aspnet/dotnet-core/aspnet-core-avancando-com-entity-framework/12465
 
